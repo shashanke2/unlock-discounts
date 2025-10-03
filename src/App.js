@@ -4,9 +4,10 @@ import SignInPage from "./SignInPage";
 import MobilePage from "./MobilePage";
 import VerifyPage from "./VerifyPage";
 import EditProfile from "./EditProfile";
+import ProviderRegistration from "./ProviderRegistration";
 
 function App() {
-  return <EditProfile />;
+  return <ProviderRegistration />;
   { /* return <MobilePage />; */}
 }
 
