@@ -6,11 +6,27 @@ export default function ProfileEditPage() {
   const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
   const [mobile, setMobile] = useState("");
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    countryCode: "",
+    mobile: ""
+  });
 
   const handleSave = () => {
-    console.log("Profile Saved:", { fullName, email, countryCode, mobile });
-    alert("Profile information saved successfully!");
+  const newErrors = {
+    fullName: fullName.trim() ? "" : "Full name is required",
+    email: email.trim() ? "" : "Email is required",
+    countryCode: countryCode.trim() ? "" : "Country code is required",
+    mobile: /^\d{10}$/.test(mobile.trim()) ? "" : "Enter a valid 10-digit mobile number"
   };
+  setErrors(newErrors);
+  // Check if any error exists
+  const hasError = Object.values(newErrors).some(err => err !== "");
+  if (hasError) return;
+
+  console.log("Profile Saved:", { fullName, email, countryCode, mobile });
+};
 
   const handleBack = () => {
     console.log("Back button clicked");
@@ -45,6 +61,7 @@ export default function ProfileEditPage() {
           onChange={(e) => setFullName(e.target.value.replace(/[^A-Za-z ]/g, ""))}
           className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-300"
         />
+        {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
         <p className="text-black-600 mt-3 mb-2 text-left text-sm">Email </p>
         <input
           type="email"
@@ -52,6 +69,7 @@ export default function ProfileEditPage() {
           onChange={(e) => setEmail(e.target.value)}
           className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-300"
         />
+        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         <p className="text-black-600 mt-3 mb-2 text-left text-sm">Phone Number </p>
         <div className="flex gap-2">
           <input
@@ -69,6 +87,7 @@ export default function ProfileEditPage() {
             className="border border-gray-300 rounded-lg px-4 py-3 flex-1 focus:outline-none focus:ring-2 focus:ring-orange-300"
           />
         </div>
+        {errors.mobile && <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>}
       </div>
 
       {/* Save Button */}

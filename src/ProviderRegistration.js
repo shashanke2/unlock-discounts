@@ -7,13 +7,33 @@ export default function ServiceProviderRegistration() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
+  const [serviceCategory, setServiceCategory] = useState("");
   const [file, setFile] = useState(null);
+  const [errors, setErrors] = useState({
+    businessName: "",
+    ownerName: "",
+    phone: "",
+    email: "",
+    address: "",
+    serviceCategory: ""
+  });
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
 
   const handleSubmit = () => {
+    const newErrors = {
+      businessName: businessName.trim() ? "" : "Business name is required",
+      ownerName: ownerName.trim() ? "" : "Owner name is required",
+      phone: /^\d{10}$/.test(phone.trim()) ? "" : "Enter a valid 10-digit phone number",
+      email: email.trim() ? "" : "Email is required",
+      address: address.trim() ? "" : "Address is required",
+      serviceCategory: serviceCategory.trim() ? "" : "Service category is required"
+    };
+    setErrors(newErrors);
+    const hasError = Object.values(newErrors).some(err => err !== "");
+    if (hasError) return;
     console.log("Form Submitted:", {
       businessName,
       ownerName,
@@ -21,8 +41,8 @@ export default function ServiceProviderRegistration() {
       email,
       address,
       file,
+      serviceCategory
     });
-    alert("Registration submitted successfully!");
   };
 
   return (
@@ -40,7 +60,6 @@ export default function ServiceProviderRegistration() {
         </div>
       </div>
 
-
       {/* Form */}
       <div className="space-y-5">
         {/* Business Name */}
@@ -56,6 +75,7 @@ export default function ServiceProviderRegistration() {
             onChange={(e) => setBusinessName(e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
+          {errors.businessName && <p className="text-red-500 text-sm mt-1">{errors.businessName}</p>}
         </div>
 
         {/* Owner Full Name */}
@@ -68,9 +88,10 @@ export default function ServiceProviderRegistration() {
             type="text"
             placeholder="Enter your full name"
             value={ownerName}
-            onChange={(e) => setOwnerName(e.target.value)}
+            onChange={(e) => setOwnerName(e.target.value.replace(/[^A-Za-z ]/g, ""))}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
+          {errors.ownerName && <p className="text-red-500 text-sm mt-1">{errors.ownerName}</p>}
         </div>
 
         {/* Phone Number */}
@@ -86,6 +107,7 @@ export default function ServiceProviderRegistration() {
             onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ""))}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
+          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         </div>
 
         {/* Email */}
@@ -102,6 +124,7 @@ export default function ServiceProviderRegistration() {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 pr-20 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             <button className="absolute right-3 top-1/2 -translate-y-1/2 text-blue-500 font-semibold text-sm">
               Verify
             </button>
@@ -121,6 +144,7 @@ export default function ServiceProviderRegistration() {
             onChange={(e) => setAddress(e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
+          {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
         </div>
 
         {/* Upload Proof */}
@@ -159,8 +183,11 @@ export default function ServiceProviderRegistration() {
           <input
             type="text"
             placeholder="Enter your service category"
+            value={serviceCategory}
+            onChange={(e) => setServiceCategory(e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
+          {errors.serviceCategory && <p className="text-red-500 text-sm mt-1">{errors.serviceCategory}</p>}
         </div>
       </div>
 

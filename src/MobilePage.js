@@ -1,23 +1,23 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export default function MobilePage() {
   const [countryCode, setCountryCode] = useState("+91");
   const [mobile, setMobile] = useState("");
   const [error, setError] = useState("");
-
-  const handleSkip = () => {
-    console.log("Skipped mobile page");
-  };
+  const navigate = useNavigate();
 
   const handleGetCode = () => {
     if (!mobile.trim()) {
       setError("Mobile number is required");
+      return;
     } else if (!/^\d{10}$/.test(mobile.trim())) {
       setError("Enter a valid 10-digit mobile number");
+      return;
     } else {
       setError("");
       console.log("Verification code sent to:", countryCode + mobile);
-      alert(`OTP sent to ${countryCode} ${mobile}`);
+      navigate("/verify", { state: { mobile: countryCode + mobile } });
     }
   };
 

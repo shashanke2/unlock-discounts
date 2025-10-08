@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function OtpVerificationPage() {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
+  const location = useLocation();
+  const mobile = location.state?.mobile || "";
 
   const handleContinue = () => {
     if (!otp.trim()) {
@@ -18,7 +21,6 @@ export default function OtpVerificationPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-between px-6 py-4">
-
       <div className="flex-1 flex flex-col justify-center">
         {/* App Name */}
         <div className="flex flex-col items-center mt-2 mb-10">
@@ -28,9 +30,13 @@ export default function OtpVerificationPage() {
           </h1>
         </div>
 
-        <p className="text-black-600 font-bold mt-4 text-left"> Verify to continue </p>
+        <p className="text-black-600 font-bold mt-4 text-left">Verify to continue</p>
+        {mobile && (
+          <p className="text-green-600 font-bold text-sm mt-2 flex items-center">
+            <span className="mr-1">✔️</span> OTP was sent to {mobile}
+          </p>
+        )}
 
-        {/* Inputs */}
         <input
           type="text"
           placeholder="Enter the OTP pin"
@@ -42,7 +48,6 @@ export default function OtpVerificationPage() {
         {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
       </div>
 
-      {/* Continue button */}
       <div className="mb-6">
         <button
           onClick={handleContinue}

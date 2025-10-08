@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignInPage() {
   const [firstName, setFirstName] = useState("");
   const [Email, setEmail] = useState("");
-
-  const handleSkip = () => {
-    console.log("Skipped sign-in");
-  };
+  const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
   const handleConfirm = () => {
+  if (!firstName.trim()) {
+    setError("Full name is required");
+  } else {
+    setError("");
     console.log("Confirm clicked:", firstName, Email);
-  };
+    navigate("/number");
+  }
+};
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-between px-6 py-4">
@@ -40,6 +45,7 @@ export default function SignInPage() {
           }}
           className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
+        {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         <div className="relative">
         <input
           type="text"
