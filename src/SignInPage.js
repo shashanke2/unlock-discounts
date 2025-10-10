@@ -58,6 +58,15 @@ export default function SignInPage() {
           Optional
         </span>
       </div>
+      <p className="text-black text-sm mt-2">
+            Are you a service provider?{" "}
+            <span
+              onClick={() => navigate("/service-registration")}
+              className="text-blue-500 cursor-pointer"
+            >
+              Register here
+            </span>
+          </p>
       </div>
       </div>
       

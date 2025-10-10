@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import GreentickIcon from "./assets/greentick.png";
 import { useLocation } from "react-router-dom";
 
 export default function OtpVerificationPage() {
@@ -33,12 +34,17 @@ export default function OtpVerificationPage() {
         <p className="text-black-600 font-bold mt-4 text-left">Verify to continue</p>
         {mobile && (
           <p className="text-green-600 font-bold text-sm mt-2 flex items-center">
-            <span className="mr-1">✔️</span> OTP was sent to {mobile}
+            <img
+              src={GreentickIcon}
+              alt="Add"
+              className="w-5 h-5 mr-2 cursor-pointer"
+            />
+              OTP was sent to {mobile}
           </p>
         )}
 
         <input
-          type="text"
+          type="tel"
           placeholder="Enter the OTP pin"
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
