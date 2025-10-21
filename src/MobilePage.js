@@ -26,12 +26,12 @@ export default function MobilePage() {
 
     <div className="flex-1 flex flex-col justify-center">
     {/* App Name */}
-    <div className="flex flex-col items-center mt-2 mb-10">
-      <h1 className="text-5xl font-bold text-center">
-        <span className="text-black">Unlock</span>
-        <span className="text-orange-400">Discounts</span>
+    <div className="flex flex-col items-start mt-2 mb-10">
+      <h1 className="text-5xl font-bold">
+        <span className="text-black">Mend</span>
+        <span className="text-orange-400">ora</span>
       </h1>
-    </div>
+    </div> 
 
     <p className="text-black-600 font-bold mt-4 text-left"> Login or Sign up to continue </p>
 
@@ -51,9 +51,7 @@ export default function MobilePage() {
         className="border border-gray-300 rounded-lg px-4 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
       />
     </div>
-
     <p className="text-black-600 mt-4 text-left text-sm"> We will send you the OTP to confirm the number </p>
-
     {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
   </div>
 

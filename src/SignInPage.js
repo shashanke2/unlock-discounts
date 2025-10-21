@@ -22,17 +22,17 @@ export default function SignInPage() {
 
       <div className="flex-1 flex flex-col justify-center">
         {/* App Name */}
-      <div className="flex flex-col items-center mt-2 mb-10">
-        <h1 className="text-5xl font-bold text-center">
-          <span className="text-black">Unlock</span>
-          <span className="text-orange-400">Discounts</span>
+      <div className="flex flex-col items-start mt-2 mb-10">
+        <h1 className="text-5xl font-bold">
+          <span className="text-black">Mend</span>
+          <span className="text-orange-400">ora</span>
         </h1>
-      </div>
+      </div>  
 
       {/* Inputs */}
       <div className="flex flex-col gap-4">
 
-        <p className="text-black-600 font-bold mt-4 text-left">Please enter your full name </p>
+        <p className="text-black-600 font-bold mt-4 text-left">Please enter your details </p>
 
         <input
           type="text"
@@ -61,7 +61,7 @@ export default function SignInPage() {
       <p className="text-black text-sm mt-2">
             Are you a service provider?{" "}
             <span
-              onClick={() => navigate("/service-registration")}
+              onClick={() => navigate("/provider-registration")}
               className="text-blue-500 cursor-pointer"
             >
               Register here

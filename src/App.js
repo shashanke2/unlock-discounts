@@ -11,6 +11,12 @@ import BookingsPage from "./BookingsPage";
 import FeedbackForm from "./FeedbackForm";
 import PopupMsg from "./PopupMsg";
 import ProviderDashboard from "./ProviderDashboard";
+import LandingPage from "./LandingPage";
+import Subscribe from "./Subscribe";
+import ServicePage from "./ServicePage";
+import Individualservice from "./IndividualService";
+import PaymentProof from "./PaymentProof";
+import ProviderVerify from './ProviderVerify'
 
 export default function App() {
   return (
@@ -20,12 +26,18 @@ export default function App() {
         <Route path="/number" element={<MobilePage />} />
         <Route path="/verify" element={<VerifyPage />} />
         <Route path="/edit-profile" element={<EditProfile />} />
-        <Route path="/service-registration" element={<ProviderRegistration />} />
+        <Route path="/provider-registration" element={<ProviderRegistration />} />
         <Route path="/no-bookings" element={<NoBookings />} />
         <Route path="/feedback-form" element={<FeedbackForm />} />
         <Route path="/bookings" element={<BookingsPage />} />
         <Route path="/popupmsg" element={<PopupMsg />} />
         <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+        <Route path="/landing-page" element={<LandingPage />} />
+        <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/service-page" element={<ServicePage />} />
+        <Route path="/individual-service" element={<Individualservice />} />
+        <Route path="/payment-proof" element={<PaymentProof />} />
+        <Route path="/provider-verify" element={<ProviderVerify />} />
       </Routes>
     </Router>
   );

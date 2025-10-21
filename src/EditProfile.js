@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { ArrowLeft } from "lucide-react"; // using lucide-react for icons
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileEditPage() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
   const [mobile, setMobile] = useState("");
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({
     fullName: "",
     email: "",
@@ -24,13 +26,12 @@ export default function ProfileEditPage() {
   // Check if any error exists
   const hasError = Object.values(newErrors).some(err => err !== "");
   if (hasError) return;
-
   console.log("Profile Saved:", { fullName, email, countryCode, mobile });
 };
 
   const handleBack = () => {
     console.log("Back button clicked");
-    // later you can add navigation logic
+    navigate("/landing-page")
   };
 
   return (
@@ -50,7 +51,7 @@ export default function ProfileEditPage() {
         <hr className="border-t border-gray-300 shadow-lg" />
       </div>
 
-      <p className="text-black-600 font-bold mt-5 mb-5 text-left">Edit Profile </p>
+      <p className="text-black-600 text-lg font-bold mt-5 mb-5 text-left">Edit Profile </p>
 
       {/* Form Content */}
       <div className="flex-1 flex flex-col ">

@@ -28,7 +28,7 @@ const BookingsPage = () => {
 
   const handleBack = () => {
     console.log("Back clicked");
-    // Add actual navigation if using react-router
+    navigate("/landing-page")
   };
 
   return (
@@ -87,21 +87,21 @@ const BookingsPage = () => {
     {/* Bottom Navigation */}
     <div className="bg-white flex justify-around items-center p-3 shadow-inner fixed bottom-0 left-0 w-full">
       <div 
-        className="flex flex-col items-center text-gray-700 hover:text-blue-500 transition-colors duration-200 cursor-pointer"
-        onClick={() => navigate("/")}
+        className="flex flex-col items-center text-gray-700 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
+        onClick={() => navigate("/landing-page")}
         >
         <img src={HomeIcon} alt="Home" className="w-6 h-6" />
         <span className="text-xs font-medium mt-1">Home</span>
       </div>
       <div
-        className="flex flex-col items-center text-gray-700 hover:text-blue-500 transition-colors duration-200 cursor-pointer"
+        className="flex flex-col items-center text-gray-700 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
         onClick={() => navigate("/bookings")}
       >
         <img src={BookingsIcon} alt="Bookings" className="w-6 h-6" />
         <span className="text-xs font-medium mt-1">Bookings</span>
       </div>
       <div 
-        className="flex flex-col items-center text-gray-700 hover:text-blue-500 transition-colors duration-200 cursor-pointer"
+        className="flex flex-col items-center text-gray-700 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
         onClick={() => navigate("/edit-profile")}
         >
         <img src={AccountIcon} alt="Account" className="w-6 h-6" />
