@@ -19,7 +19,6 @@ export default function ServiceProviderRegistration() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [serviceCategory, setServiceCategory] = useState("");
-  const [subCategory, setSubCategory] = useState("");
   const [services, setServices] = useState([{ name: "", price: "" }]);
   const [ephone, setEphone] = useState("");
   const [file, setFile] = useState(null);
@@ -34,7 +33,6 @@ export default function ServiceProviderRegistration() {
     email: "",
     address: "",
     serviceCategory: "",
-    subCategory: "",
     ephone: "",
   });
 
@@ -67,7 +65,6 @@ export default function ServiceProviderRegistration() {
     serviceCategory: serviceCategory.trim()
       ? ""
       : "Service category is required",
-    subCategory: subCategory.trim() ? "" : "Sub category is required",
     ephone: /^\d{10}$/.test(ephone.trim())
       ? ""
       : "Enter a valid 10-digit phone number",
@@ -87,7 +84,6 @@ export default function ServiceProviderRegistration() {
     address,
     file,
     serviceCategory,
-    subCategory,
     services,
     efile,
     ephone,
@@ -255,24 +251,6 @@ export default function ServiceProviderRegistration() {
           )}
         </div>
 
-        {/* Sub Category */}
-        <div>
-          <label className="flex items-center gap-2 text-gray-700 text-sm font-bold">
-            <Briefcase className="text-orange-500" size={18} />
-            Sub Category<span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter your sub category"
-            value={subCategory}
-            onChange={(e) => setSubCategory(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-          />
-          {errors.subCategory && (
-            <p className="text-red-500 text-sm mt-1">{errors.subCategory}</p>
-          )}
-        </div>
-
         {/* List of Services Offered with Pricing */}
         <div>
           <label className="flex items-center gap-2 text-gray-700 text-sm font-bold">
@@ -289,13 +267,6 @@ export default function ServiceProviderRegistration() {
                 value={s.name}
                 onChange={(e) => handleChange(index, "name", e.target.value)}
                 className="border border-gray-300 rounded-lg px-4 py-3 flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-              <input
-                type="tel"
-                placeholder="Price"
-                value={s.price}
-                onChange={(e) => handleChange(index, "price", e.target.value)}
-                className="border border-gray-300 rounded-lg px-4 py-3 w-24 ml-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
             </div>
           ))}

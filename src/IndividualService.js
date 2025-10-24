@@ -182,13 +182,6 @@ export default function IndividualService() {
           </p>
         </div>
       </div>
-
-      {/* Fixed Checkout Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white px-5 py-3 border-t border-gray-200">
-        <button className="w-full bg-orange-400 text-white font-semibold py-3 rounded-full text-lg shadow-md">
-          Checkout
-        </button>
-      </div>
     </div>
   );
 }
