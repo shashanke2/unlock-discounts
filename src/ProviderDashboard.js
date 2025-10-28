@@ -31,8 +31,9 @@ const ProviderDashboard = () => {
   ]);
 
   const [tasks, setTasks] = useState([
-    { id: 1, request: "Request 1", done: false },
-    { id: 2, request: "Request 2", done: false },
+    { id: 1, request: "Priya singh has requested a service", done: false },
+    { id: 2, request: "Vijay kumar has requested for connection hose installation service", done: false },
+    { id: 3, request: "Ajay has requested for waste pipe replacement service", done: false },
   ]);
 
   const [address, setAddress] = useState("Office No 104, 1st floor, Plat No 518, Vijay Bhawan colony, Vijay Nagar-110071");
@@ -81,13 +82,13 @@ const ProviderDashboard = () => {
       
       {/* Top Header */}
       <div className="bg-white p-5 flex justify-between items-center shadow-md mb-2">
-        <h1 className="text-2xl font-semibold text-gray-800">Welcome Back</h1>
+        <h1 className="text-3xl font-bold text-orange-500">Welcome Back,</h1>
         <div className="flex items-center gap-3">
-          <span className="font-medium text-lg mr-4 text-gray-700">Full Name</span>
+          <span className="font-medium text-2xl mr-4 text-gray-700">Full Name</span>
           <img
             src="/assets/profile.png"
             alt="Profile"
-            className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+            className="w-14 h-14 rounded-full object-cover border-2 border-gray-200"
           />
         </div>
       </div>
@@ -188,27 +189,27 @@ const ProviderDashboard = () => {
         <h2 className="font-semibold text-gray-800 mb-3">Task Logs</h2>
         <div className="flex flex-col gap-3">
           {tasks.map((task) => (
-            <div
-              key={task.id}
-              className="flex justify-between items-center bg-gray-50 p-3 rounded-xl shadow-sm"
-            >
-              <div className="flex items-center gap-2">
-                <img
-                  src={TickIcon}
-                  alt="Tick"
-                  className={`w-5 h-5 ${task.done ? "opacity-50" : ""}`}
-                />
-                <span className={`text-gray-700 ${task.done ? "line-through" : ""}`}>
-                  {task.request}
-                </span>
-              </div>
-              <button
-                className="border border-orange-500 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
-              >
-                Done
-              </button>
-            </div>
-          ))}
+  <div
+    key={task.id}
+    className="flex justify-between items-center bg-gray-50 p-3 rounded-xl shadow-sm"
+  >
+    <div className="flex items-center gap-2">
+      <img
+        src={TickIcon}
+        alt="Tick"
+        className="w-5 h-5"
+      />
+      <span className="text-gray-700">{task.request}</span>
+    </div>
+    <button
+      className="border-2 border-orange-400 bg-white text-black px-4 py-2 rounded-full font-semibold shadow-md hover:bg-orange-400 hover:text-white"
+      onClick={() => setTasks(tasks.filter((t) => t.id !== task.id))}
+    >
+      Done
+    </button>
+  </div>
+))}
+
         </div>
       </div>
 

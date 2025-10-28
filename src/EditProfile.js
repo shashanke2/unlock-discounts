@@ -27,6 +27,7 @@ export default function ProfileEditPage() {
   const hasError = Object.values(newErrors).some(err => err !== "");
   if (hasError) return;
   console.log("Profile Saved:", { fullName, email, countryCode, mobile });
+  navigate("/landing-page");
 };
 
   const handleBack = () => {
@@ -95,7 +96,7 @@ export default function ProfileEditPage() {
       <div className="mb-6">
         <button
           onClick={handleSave}
-          className="w-full bg-orange-400 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-orange-600"
+          className="w-full bg-orange-400 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-orange-500"
         >
           Save Information
         </button>

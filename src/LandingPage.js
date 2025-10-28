@@ -95,7 +95,6 @@ const LandingPage = () => {
       behavior: "smooth",
     });
 
-    // Reset index after last card
     if (index >= cards.length) {
       index = 0;
       scrollContainer.scrollTo({
@@ -113,9 +112,17 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white px-4 py-4 flex flex-col relative">
       {/* Top Header */}
-      <div className="w-full bg-orange-300 h-20 px-4 flex justify-between items-center fixed top-0 left-0">
-        <div className="flex flex-col">
-                 
+      <div className="w-full bg-orange-300 h-20 px-4 flex items-center fixed top-0 left-0 shadow-md">
+        <div className="flex items-center gap-3">
+          <img
+            src={require("./assets/logo.jpg")}
+            alt="Mendora Logo"
+            className="w-12 h-12 rounded-3xl object-cover"
+          />
+          <h1 className="text-orange-500 font-poppins font-bold text-2xl tracking-tight">
+            <span className="text-black">Mend</span>
+            <span className="text-orange-600">ora</span>
+          </h1>
         </div>
       </div>
 

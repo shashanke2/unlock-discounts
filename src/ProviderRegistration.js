@@ -91,7 +91,6 @@ export default function ServiceProviderRegistration() {
   navigate("/provider-verify");
 };
 
-
   return (
     <div className="min-h-screen bg-white px-6 py-4">
       {/* Header */}
@@ -120,7 +119,7 @@ export default function ServiceProviderRegistration() {
             placeholder="Enter your business name"
             value={businessName}
             onChange={(e) => setBusinessName(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.businessName && (
             <p className="text-red-500 text-sm mt-1">{errors.businessName}</p>
@@ -140,7 +139,7 @@ export default function ServiceProviderRegistration() {
             onChange={(e) =>
               setOwnerName(e.target.value.replace(/[^A-Za-z ]/g, ""))
             }
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.ownerName && (
             <p className="text-red-500 text-sm mt-1">{errors.ownerName}</p>
@@ -158,7 +157,7 @@ export default function ServiceProviderRegistration() {
             placeholder="Enter your contact number"
             value={phone}
             onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ""))}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.phone && (
             <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
@@ -177,7 +176,7 @@ export default function ServiceProviderRegistration() {
               placeholder="Enter your E-mail ID"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 pr-20 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full bg-gray-100 rounded-3xl px-4 py-3 pr-20 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -199,7 +198,7 @@ export default function ServiceProviderRegistration() {
             placeholder="Enter your business address"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.address && (
             <p className="text-red-500 text-sm mt-1">{errors.address}</p>
@@ -211,7 +210,7 @@ export default function ServiceProviderRegistration() {
           <p className="text-gray-700 text-sm font-bold mb-2">
             Upload Address Proof
           </p>
-          <label className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center p-6 cursor-pointer hover:border-orange-400">
+          <label className="bg-gray-100 rounded-3xl flex flex-col items-center justify-center p-6 cursor-pointer hover:border-orange-400">
             <Upload className="text-orange-500" size={20} />
             <input
               type="file"
@@ -242,7 +241,7 @@ export default function ServiceProviderRegistration() {
             placeholder="Enter your service category"
             value={serviceCategory}
             onChange={(e) => setServiceCategory(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.serviceCategory && (
             <p className="text-red-500 text-sm mt-1">
@@ -251,11 +250,11 @@ export default function ServiceProviderRegistration() {
           )}
         </div>
 
-        {/* List of Services Offered with Pricing */}
+        {/* Services Offered */}
         <div>
           <label className="flex items-center gap-2 text-gray-700 text-sm font-bold">
             <LayoutPanelLeft className="text-orange-500" size={18} />
-            List of Services Offered with Pricing
+            Services Offered
             <span className="text-red-500">*</span>
           </label>
 
@@ -266,7 +265,7 @@ export default function ServiceProviderRegistration() {
                 placeholder="Enter Service name"
                 value={s.name}
                 onChange={(e) => handleChange(index, "name", e.target.value)}
-                className="border border-gray-300 rounded-lg px-4 py-3 flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="w-full bg-gray-100 rounded-3xl px-4 py-3 flex-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
               />
             </div>
           ))}
@@ -286,7 +285,7 @@ export default function ServiceProviderRegistration() {
             Experience Certificate/Client References
             <span className="text-red-500">*</span>
           </label>
-          <label className="border-2 border-dashed border-gray-300 mt-1 rounded-lg flex flex-col items-center justify-center p-6 cursor-pointer hover:border-orange-400">
+          <label className="bg-gray-100 mt-1 rounded-3xl flex flex-col items-center justify-center p-6 cursor-pointer hover:border-orange-400">
             <Upload className="text-orange-500" size={20} />
             <input
               type="file"
@@ -317,7 +316,7 @@ export default function ServiceProviderRegistration() {
             placeholder="Enter Emergency contact number"
             value={ephone}
             onChange={(e) => setEphone(e.target.value.replace(/[^0-9]/g, ""))}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="w-full bg-gray-100 rounded-3xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           {errors.ephone && (
             <p className="text-red-500 text-sm mt-1">{errors.ephone}</p>
@@ -353,7 +352,7 @@ export default function ServiceProviderRegistration() {
       <div className="mt-6">
         <button
           onClick={handleSubmit}
-          className="w-full bg-orange-400 text-white py-3 rounded-full font-semibold shadow-md hover:bg-orange-600"
+          className="w-full border-2 border-orange-400 bg-white text-black py-3 rounded-full font-semibold shadow-md hover:bg-orange-400 hover:text-white"
         >
           Register
         </button>
